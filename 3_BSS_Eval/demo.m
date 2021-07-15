@@ -29,6 +29,12 @@ x_e = horzcat(x_e_BD,x_e_SD,x_e_HH,x_e_T1,x_e_T2,x_e_FT);
 clear x_e_BD x_e_SD x_e_HH x_e_T1 x_e_T2 x_e_FT
 x_e = x_e';
 
+%{
+% 1. read estimated sources (for panning imitation)
+x_e = audioread('../2_panning_imitation_for_drum_automix/output/pannign_imitation_result.wav');
+x_e = x_e';
+%}
+
 %2. read ture sources (ground truth)
 x_t_BD = audioread('input_data/1_BD_ground_truth.wav');
 x_t_SD = audioread('input_data/2_SD_ground_truth.wav');
@@ -40,6 +46,12 @@ x_t = horzcat(x_t_BD,x_t_SD,x_t_HH,x_t_T1,x_t_T2,x_t_FT);
 clear x_t_BD x_t_SD x_t_HH x_t_T1 x_t_T2 x_t_FT
 x_t = x_t';
 
+%{
+%2. read ture sources (ground truth)(for panning imitation)
+x_t = audioread('../2_panning_imitation_for_drum_automix/input_data/wet_mix.wav');
+x_t = x_t';
+%}
+
 % 3. BSS Eval
 [SDR,SIR,SAR] = bss_eval_sources(x_e, x_t);
 
@@ -50,3 +62,10 @@ report = {"BD_SAR",SAR(1);"BD_SDR",SDR(1);"BD_SIR",SIR(1);...
     "T1_SAR",SAR(4);"T1_SDR",SDR(4);"T1_SIR",SIR(4);...
     "T2_SAR",SAR(5);"T2_SDR",SDR(5);"T2_SIR",SIR(5);...
     "FT_SAR",SAR(6);"FT_SDR",SDR(6);"FT_SIR",SIR(6)};
+
+%{
+% 4. generate report(for pannign_imitation)
+report = {"Left_SDR",SDR(1);"Right_SDR",SDR(2);...
+   "Left_SIR",SIR(1);"Right_SIR",SIR(2);...
+   "Left_SAR",SAR(1);"Right_SAR",SAR(2);};
+%}
