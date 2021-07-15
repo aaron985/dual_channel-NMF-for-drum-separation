@@ -32,3 +32,14 @@ In drums.txt, the number 1 to 9 stand for each instrument.
 3. run demo.m
 
 ## 2_panning_imitation_for_drum_automix
+Panning imitation is the task to estimate the panning level of each instrument in the input signal as well as in a wellrecorded drum set signal, such that the panning condition of the input can be converted to the wellrecorded one.
+
+1. replace the drum separation result from 1_1, 1_2 or 1_3 in input forlder
+2. replace the wet_mix, wellrecorded singal, in input forlder
+3. run demo.m
+
+## 3_BSS_Eval
+We use the BSS Eval 3.0 toolkit to evaluate the performance of source separation and panning imitation.
+
+1. replace the ground thuth in input forlder
+2. run demo.m
