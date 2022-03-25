@@ -1,6 +1,8 @@
 # dual_channel-NMF-for-drum-separation
 This project containts the implementation of drum separation and evaluating the result of drum separation.
 
+C. -Y. Cai, Y. -H. Su and L. Su, "Dual-channel Drum Separation for Low-cost Drum Recording Using Non-negative Matrix Factorization," 2021 Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC), 2021, pp. 17-22.
+
 ## 1_1_dual_channel_NMF_for_drum_separation
 This program is running with GPU. In dual-channel framework, we consider using NMFD for drum separation, and its initial template and activation matrices are estimated using NMF over the magnitude spectrogram of the training data.
 
